@@ -18,7 +18,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   sensor_msgs
   apriltag_msgs
-  apriltag_ros
+  apriltag_ros_ts
   message_filters
   rosgraph_msgs
   cv_bridge

@@ -32,7 +32,7 @@ namespace tagslam {
     }
   }
 
-  using Family = apriltag_ros::TagFamily;
+  using Family = apriltag_ros_ts::TagFamily;
   bool SyncAndDetect::initialize() {
     int tagF;
     nh_.param<int>("tag_family", tagF, 0);
@@ -61,11 +61,11 @@ namespace tagslam {
     for (const auto &i: irange(0ul, imageTopics_.size())) {
       (void)i;
       if (detectorType_ == "Mit") {
-        detectors_.push_back(apriltag_ros::ApriltagDetector::Create(
-                              apriltag_ros::DetectorType::Mit, tagFamily));
+        detectors_.push_back(apriltag_ros_ts::ApriltagDetector::Create(
+                              apriltag_ros_ts::DetectorType::Mit, tagFamily));
       } else if (detectorType_ == "Umich") {
-        detectors_.push_back(apriltag_ros::ApriltagDetector::Create(
-                               apriltag_ros::DetectorType::Umich, tagFamily));
+        detectors_.push_back(apriltag_ros_ts::ApriltagDetector::Create(
+                               apriltag_ros_ts::DetectorType::Umich, tagFamily));
       } else {
         BOMB_OUT("INVALID DETECTOR TYPE: " << detectorType_);
       }
@@ -157,7 +157,7 @@ namespace tagslam {
       if (annotateImages_) {
         cv::Mat colorImg = imgs[i].clone();
         if (!tags.empty()) {
-          apriltag_ros::DrawApriltags(colorImg, tags);
+          apriltag_ros_ts::DrawApriltags(colorImg, tags);
         }
         
         msg.header = headers[i];

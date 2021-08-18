@@ -9,7 +9,7 @@
 #include <flex_sync/exact_sync.h>
 #include <flex_sync/approximate_sync.h>
 
-#include <apriltag_ros/apriltag_detector.h>
+#include <apriltag_ros_ts/apriltag_detector.h>
 
 #include <ros/ros.h>
 #include <image_transport/image_transport.h>
@@ -177,7 +177,7 @@ namespace tagslam {
     int                                 syncQueueSize_;
     int                                 maxFrameNumber_;
     int                                 skip_{1};
-    std::vector<apriltag_ros::ApriltagDetector::Ptr> detectors_;
+    std::vector<apriltag_ros_ts::ApriltagDetector::Ptr> detectors_;
     std::string                         detectorType_;
     Profiler                            profiler_;
     std::shared_ptr<Subscriber<ApproximateSync>>  approxSubscriber_;
